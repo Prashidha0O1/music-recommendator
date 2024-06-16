@@ -7,7 +7,7 @@ async fn hello_world() -> &'static str {
 }
 
 #[shuttle_runtime::main]
-fn main(
+async fn main(
     #[shuttle_shared_db::Postgres()] pool: sqlx::PgPool,
 ) -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
     let config = move |cfg: &mut ServiceConfig| {
