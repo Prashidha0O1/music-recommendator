@@ -1,19 +1,22 @@
 [package]
-name = "api-shutt"
+name = "api-shuttle"
 version = "0.1.0"
 edition = "2021"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-actix-web = "4.3.1"
-shuttle-actix-web = "0.46.0"
-shuttle-runtime = "0.46.0"
-tokio = "1.26.0"
-shuttle-shared-db = { version = "0.46.0", features = ["postgres"] }
-sqlx = { version = "0.7", default-features = false, features = [
-    "tls-native-tls",
-    "macros",
-    "postgres",
-    "uuid",
-    "chrono",
-    "json",
-] }
+# internal
+api-lib = { workspace = true }
+# shuttle
+shuttle-runtime = "0.36.0"
+shuttle-actix-web = "0.36.0"
+# db
+# shuttle-aws-rds = { version = "0.18.0", features = ["postgres"] }
+shuttle-shared-db = { version = "0.36.0", features = ["postgres"] }
+sqlx = { workspace = true }
+# actixs
+actix-web = { workspace = true }
+actix-files = { workspace = true }
+tokio = "1.28.2"
